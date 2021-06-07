@@ -40,22 +40,29 @@
 
             <?php
             // подключение классов
-            require_once '../vendor/autoload.php';
+            require_once '../App/Model/Db.php';
+            require_once '../App/View/View.php';
+            require_once '../App/Controller/Controller.php';
+            require_once '../src/Connect.php';
 
             use src\Connect;
-            use Model\Db;
+            use App\Model\Db;
 
-            // переменная содержащая лбъект подключения к БД
             $connect = new Connect();
-            // объект класса для работы с таблицами в БД
-            $db= new Db($connect);
+            $model = new Db($connect->connect);
 
-            // вызов метода редактирования записи по нажатию на кнопку
+            /** получение id для функции удаления записи */
+            /** запуск метода удаления записи при нажатии на кнопку */
             if (isset($_POST['edit'])) {
-                $id = $_POST['id'];
-                $title = $_POST['title'];
-                $text = $_POST['text'];
-                $db->edit($title, $text, $id);
+                try {
+                    $id = $_POST['id'];
+                    $title = $_POST['title'];
+                    $text = $_POST['text'];
+                    $controller = new Controller($model);
+                    echo $controller->callEdit($title, $text, $id);
+                }catch (Error $error) {
+                    die("Error =>" . $error->getMessage());
+                }
             }
             ?>
         </center>

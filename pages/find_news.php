@@ -48,9 +48,9 @@
     if (isset($_POST['id']) and !empty($_POST['id'])) {
         try {
             /** установка для id типа данных */
-            $data['id'] = intval($_POST['id']);
-            $controller = new Controller($model, $data);
-            $controller->returnToModel('getOne');
+            $id = intval($_POST['id']);
+            $controller = new Controller($model);
+            $controller->callFindOneRow($id);
         }catch (Error $error) {
             die("Error =>" . $error->getMessage());
         }

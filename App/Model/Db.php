@@ -53,7 +53,7 @@ class Db
     $page - номер страницы на которой происходит вывод записей
     $limit - кол-во выводимых на одной странице записей
      */
-    public function getAll(int $page, int $limit): array
+    public function getNumRows(int $page, int $limit): array
     {
         /** запрос к базе */
         $query = "SELECT * FROM news LIMIT :start, :limit";
@@ -88,7 +88,7 @@ class Db
     /** метод поиска записи в таблице
     $id - ID записи по которому производится поиск в таблице
      */
-    public function getOne(int $id): array
+    public function getOneRow(int $id): array
     {
         $query = "SELECT * FROM news WHERE id = :id";
 
@@ -107,7 +107,6 @@ class Db
             /** закрытие запроса */
             $prepare->closeCursor();
 
-            echo gettype($rowFromTable);
             return $rowFromTable;
         } catch (PDOException $e) {
             die("Произошла ошибка при поиске записи в таблице => " . $e->getMessage());
@@ -117,7 +116,7 @@ class Db
     /**  метод удаления записи из таблицы
     $id - ID записи по которому происходит удаления записи
      */
-    public function delete(int $id)
+    public function deleteRow(int $id)
     {
         /** массив строк полученных из базы */
         $query = "DELETE FROM news WHERE id = :id";

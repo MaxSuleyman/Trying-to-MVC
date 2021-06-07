@@ -35,20 +35,30 @@
             </div>
             <?php
             // подключение классов
-            require_once '../vendor/autoload.php';
+            require_once '../App/Model/Db.php';
+            require_once '../App/View/View.php';
+            require_once '../App/Controller/Controller.php';
+            require_once '../src/Connect.php';
 
             use src\Connect;
-            use Model\Db;
+            use App\Model\Db;
 
             $connect = new Connect();
-            $db= new Db($connect);
+            $model = new Db($connect->connect);
 
-            # вызов метода добавления записи в базу по нажатию кнопки
-            if (isset($_POST['add'])) {
-                $title = $_POST['title'];
-                $text = $_POST['text'];
-                $db->insert($title, $text);
+            /** получение id для функции удаления записи */
+            /** запуск метода удаления записи при нажатии на кнопку */
+            if (isset($_POST['add']) and !empty($_POST['title']) and !empty($_POST['text'])) {
+                try {
+                    $title = $_POST['title'];
+                    $text = $_POST['text'];
+                    $controller = new Controller($model);
+                    echo $controller->callInsert($title, $text);
+                }catch (Error $error) {
+                    die("Error =>" . $error->getMessage());
+                }
             }
+
             ?>
         </center>
     </body>

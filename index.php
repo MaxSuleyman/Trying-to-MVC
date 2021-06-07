@@ -25,13 +25,11 @@
             /** пространство имен класса подключения к БД */
             use src\Connect;
 
-            /** пространство имен класса пагинатора */
-            use App\Model\Pagination;
+
 
             /** подключение классов */
             require_once 'src/Connect.php';
             require_once 'App/Model/Db.php';
-            require_once 'App/Model/Pagination.php';
             require_once 'App/Controller/Controller.php';
             require_once 'App/View/View.php';
 
@@ -46,25 +44,35 @@
              * $page - номер страницы передаваемый в класс пагинации
             */
             $limit = 5;
-            $dataDb = [
-                'page' => $_GET['page'],
-                'limit' => $limit
-            ];
 
             /** объект контроллера, принимает на вход объект модели и массив с данными*/
-            $controller = new Controller($modelDB, $dataDb);
+            $controller = new Controller($modelDB);
 
-            $controller->returnToModel('getAll');
-
+            /**
+             * вызов метода обработчика для получения
+             */
+            $controller->callGetNumRows($_GET['page'], $limit);
             /** получение из БД кол-ва записей в таблице */
-            $totalRowsFromTable = $controller->returnToModel('getCountTable');
+            $totalRowsFromTable = $controller->callGetCountTable();
+
+
+
+            /**
+             * вызов метода обрабочика для метода удаления записи
+             */
+            if (isset($_GET['id']) and !empty($_GET['id'])) {
+                $id = $_GET['id'];
+                $id = intval($id);
+                $controller->callDeleteRow($id);
+            }
+
+
 
             /** массив данных для метода пагинации
              * page - номер страницы на которой необходимо вывести данные
              * limit - кол-во выводимых на одной странице записей
              * totalRowsFromTable - общее кол-во записей в таблице
              */
-
             $dataPagination = [
                 'page' => $_GET['page'],
                 'limit' => $limit,
