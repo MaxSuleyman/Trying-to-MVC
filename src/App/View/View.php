@@ -10,24 +10,18 @@ namespace src\App\View;
  */
 class View
 {
-    /**
-     * метод выводящий найденые в таблице записи
-     */
-    public function viewArticles(array $data)
-    {
-        ob_start();
-        require_once DOCUMENT_ROOT . '/src/templates/articles.php';
-        echo ob_get_clean();
-    }
 
     /**
-     * @param $data - данные для формирования меню навигации
-     * @return mixed|string - возвращает строку с меню навигации
+     * @param array $data - данные для визуализации
+     * @param string $fileName - имя файла templates
      */
-    public function viewPagination(array $data)
+    public function display(array $data, string $fileName)
     {
-        ob_start();
-        require_once DOCUMENT_ROOT . '/src/templates/pagination.php';
-        ob_get_contents();
+        $dir = DOCUMENT_ROOT . '/src/templates/' . $fileName;
+        if (file_exists($dir)) {
+            require_once $dir;
+        } else {
+            echo "Не удалось подключить файл $dir";
+        }
     }
 }

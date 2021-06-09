@@ -28,7 +28,7 @@ class ControllerFindNews
                 throw new \Exception("Запись в id=$id не найдена");
             }
 
-            $this->view->viewArticles($data);
+            $this->view->display($data, 'articles.php');
         } catch (Exception $e) {
             return ("Exception => " . $e->getMessage());
         }

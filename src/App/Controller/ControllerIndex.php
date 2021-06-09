@@ -29,7 +29,7 @@ class ControllerIndex
                 throw new \Exception("Укажите кол-во записей для вывода на странице");
             }
             $data = $this->db->findAll($page, $limit);
-            $this->view->viewArticles($data);
+            $this->view->display($data, 'articles.php');
         }catch (\Exception $e) {
             return "Исключение => " . $e->getMessage() . "<br>";
         }
@@ -90,7 +90,7 @@ class ControllerIndex
         } else {
             // масси содержащий номер страницы и общее кол-во страниц для вывода записей на экран
             $dataToView = [$page, $total];
-            $this->view->viewPagination($dataToView);
+            $this->view->display($dataToView, 'pagination.php');
         }
     }
 }

@@ -4,11 +4,12 @@
     <list default="true" id="4339908c-774b-4e20-ac13-3dd65ee916a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Controller/ControllerFindNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controller/ControllerFindNews.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/DbArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/add_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/edit_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/find_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/View/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/add_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/edit_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/find_news.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ready/Задание 5 база и логи" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ready/Задание 6 каршеринг composer" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +56,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src/App" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/App/Model" />
@@ -69,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622634391975</updated>
       <workItem from="1622634393054" duration="10293000" />
-      <workItem from="1623046462280" duration="46599000" />
+      <workItem from="1623046462280" duration="49566000" />
     </task>
     <servers />
   </component>

@@ -12,9 +12,9 @@
             <h1>Главная</h1>
 
             <div>
-                <a href="src/templates/add_news.php" id="link">Добавить запись</a>
-                <a href="src/templates/edit_news.php" id="link">Редактировать запись</a>
-                <a href="src/templates/find_news.php">Найти запись</a>
+                <a href="src/pages/add_news.php" id="link">Добавить запись</a>
+                <a href="src/pages/edit_news.php" id="link">Редактировать запись</a>
+                <a href="src/pages/find_news.php">Найти запись</a>
             </div>
 
             <div id="space"></div>
