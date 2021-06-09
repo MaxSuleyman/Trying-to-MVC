@@ -34,19 +34,18 @@
                 </div>
             </div>
             <?php
+            define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT']);
             // подключение классов
-            require_once '../App/Db.php';
-            require_once '../App/View/View.php';
-            require_once '../App/Controller/ControllerAddNews.php';
-            require_once '../App/Connect.php';
+            require_once DOCUMENT_ROOT . '/vendor/autoload.php';
 
-            use App\Connect;
-            use App\Db;
-            use App\Controller\ControllerAddNews;
+            use src\App\Connect;
+            use src\App\DbArticle;
+            use src\App\Controller\ControllerAddNews;
+            use src\App\View\View;
 
             $connect = new Connect();
-            $model = new Db($connect->connect);
-            $view = new \App\View\View();
+            $model = new DbArticle($connect->connect);
+            $view = new View();
 
             /** получение id для функции удаления записи */
             /** запуск метода удаления записи при нажатии на кнопку */

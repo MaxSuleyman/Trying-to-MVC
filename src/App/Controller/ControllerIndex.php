@@ -1,8 +1,6 @@
 <?php
+namespace src\App\Controller;
 
-
-namespace App\Controller;
-use App\View\View;
 use mysql_xdevapi\Exception;
 
 
@@ -30,7 +28,7 @@ class ControllerIndex
             if ($limit === null or $limit == 0) {
                 throw new \Exception("Укажите кол-во записей для вывода на странице");
             }
-            $data = $this->db->findAllArticles($page, $limit);
+            $data = $this->db->findAll($page, $limit);
             $this->view->viewArticles($data);
         }catch (\Exception $e) {
             return "Исключение => " . $e->getMessage() . "<br>";
@@ -42,7 +40,7 @@ class ControllerIndex
      */
     public function countArticles()
     {
-        return $this->db->getCountArticles();
+        return $this->db->getCount();
     }
 
     /**
@@ -56,7 +54,7 @@ class ControllerIndex
                 return "Не корректный ID записи";
             }
             $id = intval($id);
-            $this->db->deleteArticle($id);
+            $this->db->delete($id);
         }catch (Exception $e) {
             die("Error => " . $e->getMessage());
         }

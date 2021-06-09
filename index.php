@@ -21,25 +21,22 @@
 
             <?php
             /**  пространство имен класса для работы с БД */
-            use App\Db;
+            use src\App\DbArticle;
 
             /** пространство имен класса подключения к БД */
-            use App\Connect;
+            use src\App\Connect;
+            use src\App\View\View;
+            use src\App\Controller\ControllerIndex;
 
-            use App\Controller\ControllerIndex;
 
             /** подключение классов */
-            require_once 'src/App/Connect.php';
-            require_once 'src/App/Db.php';
-            require_once 'src/App/Controller/ControllerIndex.php';
-            require_once 'src/App/View/View.php';
-            require_once 'src/App/Model/ArticleModel.php';
+            require_once DOCUMENT_ROOT . '/vendor/autoload.php';
 
             /** объект переменной подключения к БД */
             $connect = new Connect();
             /** объект модели для работы с таблицами в Бд */
-            $db = new Db($connect->connect);
-            $view = new \App\View\View();
+            $db = new DbArticle($connect->connect);
+            $view = new View();
 
             /** $dataDb - массив данных передаваемый в метод поиска n-ого кол-ва записей
              * $limit - кол-во записей выводимых на одну страницу

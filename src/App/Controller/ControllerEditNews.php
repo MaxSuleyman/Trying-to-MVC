@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace src\App\Controller;
 
 
 class ControllerEditNews
@@ -24,7 +24,7 @@ class ControllerEditNews
             return "Заполните поля формы";
         }
         try {
-            $this->db->editArticle($title, $text, $id);
+            $this->db->update($title, $text, $id);
             return "Запись успешно отредактирована";
         }catch (\Exception $e) {
             die("Error => " . $e->getMessage());

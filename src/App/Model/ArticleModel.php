@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace src\App\Model;
 
 class ArticleModel
 {

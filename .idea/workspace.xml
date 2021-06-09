@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4339908c-774b-4e20-ac13-3dd65ee916a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerAddNews.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerEditNews.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerFindNews.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/Model/ArticleModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/articles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Model/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/View/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/View.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/add_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/edit_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/find_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/DbArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/add_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/edit_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/find_news.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622634391975</updated>
       <workItem from="1622634393054" duration="10293000" />
-      <workItem from="1623046462280" duration="44335000" />
+      <workItem from="1623046462280" duration="46599000" />
     </task>
     <servers />
   </component>

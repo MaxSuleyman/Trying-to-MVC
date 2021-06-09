@@ -1,8 +1,6 @@
 <?php
 
-
-namespace App\Controller;
-
+namespace src\App\Controller;
 
 use mysql_xdevapi\Exception;
 
@@ -24,7 +22,7 @@ class ControllerFindNews
     public function findOneArticle(int $id)
     {
         try {
-            $data = $this->db->findOneArticles($id);
+            $data = $this->db->findOne($id);
             if (empty($data)) {
                 echo "Запись в id=$id не найдена";
                 throw new \Exception("Запись в id=$id не найдена");

@@ -1,16 +1,14 @@
 <?php
 
-namespace App;
-
+namespace src\App;
 use PDO;
-use App\Model\ArticleModel;
 
 /**
  * Class Db
  * @package src
  * класс для работы с таблицами в БД
  */
-class Db
+class DbArticle
 {
     /** переменная подключения к БД */
     private $connect;
@@ -26,7 +24,7 @@ class Db
     }
 
     /** метод получения кол-ва записей в таблице */
-    public function getCountArticles(): int
+    public function getCount(): int
     {
         /** запрос для подсчета кол-ва записей в базе */
         $query = "SELECT count(`id`) FROM news";
@@ -46,7 +44,7 @@ class Db
             /** возвращает кол-во записей в указанной таблице */
             $countRows = $result['count(`id`)'];
             return $countRows;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при получении кол-ва записей в таблице => " . $e->getMessage());
         }
     }
@@ -55,7 +53,7 @@ class Db
     $page - номер страницы на которой происходит вывод записей
     $limit - кол-во выводимых на одной странице записей
      */
-    public function findAllArticles(int $page, int $limit): array
+    public function findAll(int $page, int $limit): array
     {
         /** запрос к базе */
         $query = "SELECT * FROM news LIMIT :start, :limit";
@@ -75,7 +73,7 @@ class Db
             $prepare->execute();
 
             /** массив строк полученных из базы */
-            $allRowsFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "App\Model\ArticleModel");
+            $allRowsFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "src\App\Model\ArticleModel");
 
             /** закрытие запроса */
             $prepare->closeCursor();
@@ -90,7 +88,7 @@ class Db
     /** метод поиска записи в таблице
     $id - ID записи по которому производится поиск в таблице
      */
-    public function findOneArticles(int $id): array
+    public function findOne(int $id): array
     {
         $query = "SELECT * FROM news WHERE id = :id";
 
@@ -103,7 +101,7 @@ class Db
             /** выполнение запроса */
             $prepare->execute();
             /** объект содержащий результат выполнения запроса */
-            $rowFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "App\Model\ArticleModel");
+            $rowFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "src\App\Model\ArticleModel");
 
             /** закрытие запроса */
             $prepare->closeCursor();
@@ -117,7 +115,7 @@ class Db
     /**  метод удаления записи из таблицы
     $id - ID записи по которому происходит удаления записи
      */
-    public function deleteArticle(int $id)
+    public function delete(int $id)
     {
         /** массив строк полученных из базы */
         $query = "DELETE FROM news WHERE id = :id";
@@ -143,7 +141,7 @@ class Db
     $text - текст записи для редактирования
     $id - Id записи по которому происходит поиск и редактировнаие записи
      * */
-    public function editArticle(string $title, string $text, int $id)
+    public function update(string $title, string $text, int $id)
     {
         /** запрос к базе */
         $query = "UPDATE news SET title = :title, text = :text WHERE id = :id";
