@@ -1,3 +1,4 @@
+<?php define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT']); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,33 +12,34 @@
             <h1>Главная</h1>
 
             <div>
-                <a href="pages/add_news.php" id="link">Добавить запись</a>
-                <a href="pages/edit_news.php" id="link">Редактировать запись</a>
-                <a href="pages/find_news.php">Найти запись</a>
+                <a href="src/templates/add_news.php" id="link">Добавить запись</a>
+                <a href="src/templates/edit_news.php" id="link">Редактировать запись</a>
+                <a href="src/templates/find_news.php">Найти запись</a>
             </div>
 
             <div id="space"></div>
 
             <?php
             /**  пространство имен класса для работы с БД */
-            use App\Model\Db;
+            use App\Db;
 
             /** пространство имен класса подключения к БД */
-            use src\Connect;
+            use App\Connect;
 
-
+            use App\Controller\ControllerIndex;
 
             /** подключение классов */
-            require_once 'src/Connect.php';
-            require_once 'App/Model/Db.php';
-            require_once 'App/Controller/Controller.php';
-            require_once 'App/View/View.php';
-
+            require_once 'src/App/Connect.php';
+            require_once 'src/App/Db.php';
+            require_once 'src/App/Controller/ControllerIndex.php';
+            require_once 'src/App/View/View.php';
+            require_once 'src/App/Model/ArticleModel.php';
 
             /** объект переменной подключения к БД */
             $connect = new Connect();
             /** объект модели для работы с таблицами в Бд */
-            $modelDB = new Db($connect->connect);
+            $db = new Db($connect->connect);
+            $view = new \App\View\View();
 
             /** $dataDb - массив данных передаваемый в метод поиска n-ого кол-ва записей
              * $limit - кол-во записей выводимых на одну страницу
@@ -46,14 +48,17 @@
             $limit = 5;
 
             /** объект контроллера, принимает на вход объект модели и массив с данными*/
-            $controller = new Controller($modelDB);
+            $controller = new ControllerIndex($db, $view);
 
             /**
-             * вызов метода обработчика для получения
+             * вызов метода обработчика для получения записей из таблице
              */
-            $controller->callGetNumRows($_GET['page'], $limit);
+            $controller->findAllArticles($_GET['page'], $limit);
+
+
+
             /** получение из БД кол-ва записей в таблице */
-            $totalRowsFromTable = $controller->callGetCountTable();
+            $totalRowsFromTable = $controller->countArticles();
 
 
 
@@ -63,10 +68,8 @@
             if (isset($_GET['id']) and !empty($_GET['id'])) {
                 $id = $_GET['id'];
                 $id = intval($id);
-                $controller->callDeleteRow($id);
+                $controller->deleteArticle($id);
             }
-
-
 
             /** массив данных для метода пагинации
              * page - номер страницы на которой необходимо вывести данные
@@ -80,7 +83,7 @@
             ];
 
             /** вывод меню навигации на экран */
-            echo $controller->pagination($dataPagination);
+            $controller->pagination($dataPagination);
             ?>
 
             <div id="space"></div>

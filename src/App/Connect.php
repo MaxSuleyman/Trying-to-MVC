@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace App;
 
 // класс подключения к базе
 class Connect

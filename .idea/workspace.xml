@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4339908c-774b-4e20-ac13-3dd65ee916a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerAddNews.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerEditNews.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerFindNews.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Controller/ControllerIndex.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Model/ArticleModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/templates/articles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/templates/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Model/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Model/Db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Model/Pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/View/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/View/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controller/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Model/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/View/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/View.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/edit_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/add_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/edit_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/edit_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/find_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/find_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Connect.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ready/Задание 6 каршеринг composer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ready/Задание 5 база и логи" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,6 +64,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/App" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/App/Model" />
     </key>
   </component>
@@ -69,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622634391975</updated>
       <workItem from="1622634393054" duration="10293000" />
-      <workItem from="1623046462280" duration="13726000" />
+      <workItem from="1623046462280" duration="44335000" />
     </task>
     <servers />
   </component>

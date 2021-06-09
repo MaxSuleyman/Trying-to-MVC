@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace App;
 
 use PDO;
+use App\Model\ArticleModel;
 
 /**
  * Class Db
@@ -16,15 +17,16 @@ class Db
 
 
 
-    /** метод подключения к базе
-    $dbh - объект подключения к БД */
+    /**
+    $dbh - объект подключения к БД
+     */
     public function __construct(PDO $dbh)
     {
         $this->connect = $dbh;
     }
 
     /** метод получения кол-ва записей в таблице */
-    public function getCountTable(): int
+    public function getCountArticles(): int
     {
         /** запрос для подсчета кол-ва записей в базе */
         $query = "SELECT count(`id`) FROM news";
@@ -53,7 +55,7 @@ class Db
     $page - номер страницы на которой происходит вывод записей
     $limit - кол-во выводимых на одной странице записей
      */
-    public function getNumRows(int $page, int $limit): array
+    public function findAllArticles(int $page, int $limit): array
     {
         /** запрос к базе */
         $query = "SELECT * FROM news LIMIT :start, :limit";
@@ -73,14 +75,14 @@ class Db
             $prepare->execute();
 
             /** массив строк полученных из базы */
-            $allRowsFromTable = $prepare->fetchAll(PDO::FETCH_CLASS);
+            $allRowsFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "App\Model\ArticleModel");
 
             /** закрытие запроса */
             $prepare->closeCursor();
 
             /** возврат массива с результатом запроса */
             return $allRowsFromTable;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при поиске записей в таблице => " . $e->getMessage());
         }
     }
@@ -88,7 +90,7 @@ class Db
     /** метод поиска записи в таблице
     $id - ID записи по которому производится поиск в таблице
      */
-    public function getOneRow(int $id): array
+    public function findOneArticles(int $id): array
     {
         $query = "SELECT * FROM news WHERE id = :id";
 
@@ -100,15 +102,14 @@ class Db
 
             /** выполнение запроса */
             $prepare->execute();
-
             /** объект содержащий результат выполнения запроса */
-            $rowFromTable = $prepare->fetchAll(PDO::FETCH_CLASS);
+            $rowFromTable = $prepare->fetchAll(PDO::FETCH_CLASS, "App\Model\ArticleModel");
 
             /** закрытие запроса */
             $prepare->closeCursor();
 
             return $rowFromTable;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при поиске записи в таблице => " . $e->getMessage());
         }
     }
@@ -116,7 +117,7 @@ class Db
     /**  метод удаления записи из таблицы
     $id - ID записи по которому происходит удаления записи
      */
-    public function deleteRow(int $id)
+    public function deleteArticle(int $id)
     {
         /** массив строк полученных из базы */
         $query = "DELETE FROM news WHERE id = :id";
@@ -132,7 +133,7 @@ class Db
 
             /** закрытие запроса */
             $result->closeCursor();
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при попытке удаления запииси => " . $e->getMessage());
         }
     }
@@ -142,7 +143,7 @@ class Db
     $text - текст записи для редактирования
     $id - Id записи по которому происходит поиск и редактировнаие записи
      * */
-    public function edit(string $title, string $text, int $id)
+    public function editArticle(string $title, string $text, int $id)
     {
         /** запрос к базе */
         $query = "UPDATE news SET title = :title, text = :text WHERE id = :id";
@@ -161,7 +162,7 @@ class Db
 
             /** закрытие запроса */
             $result->closeCursor();
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при редактировании запииси => " . $e->getMessage());
         }
     }
@@ -189,7 +190,7 @@ class Db
 
             /** закрытие запроса */
             $result->closeCursor();
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Произошла ошибка при добавлении записи в таблицу =>" . $e->getMessage());
         }
     }
